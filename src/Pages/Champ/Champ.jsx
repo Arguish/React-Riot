@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import "./Champ.css";
 
-const CHAMPCHAR = "Aatrox";
-
 function Champ() {
+  const { CHAMPCHAR } = useParams();
   const [character, setcharacter] = useState({});
   useEffect(() => {
     charResult();
@@ -28,7 +28,7 @@ function Champ() {
       }}
       className="champPage"
     >
-      <h1>Aatrox</h1>
+      <h1>{character.id}</h1>
       <h2>{character.title}</h2>
       <p>{character.lore}</p>
     </div>
