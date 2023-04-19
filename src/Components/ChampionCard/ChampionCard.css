@@ -1,0 +1,39 @@
+.championCard {
+  width: calc(0.5 * 308px);
+  height: calc(0.5 * 560px);
+  background-size: contain;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.championCard > div > h2 {
+  margin: 0%;
+  padding: 0%;
+  text-align: start;
+}
+
+.championCard > p > h5 {
+  margin: 0%;
+  padding: 0%;
+  text-align: end;
+}
+
+.championCard > p {
+  margin: 0%;
+  text-align: center;
+}
+
+.championCard > p > span {
+  display: inline-block;
+  margin: 3px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  box-shadow: black 5px 5px 3px;
+  background-color: rgba(250, 235, 215, 0.21);
+  border-radius: 50%;
+  padding: 3px;
+}

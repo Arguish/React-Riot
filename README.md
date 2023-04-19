@@ -9,3 +9,17 @@
 - Cargar los resultados de la petición en tarjetas de Material UI
 
 ---
+
+http://ddragon.leagueoflegends.com/cdn/13.8.1/data/en_US/champion/Aatrox.json
+
+http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lux_5.jpg
+
+http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg
+
+http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/Aatrox.png
+
+http://ddragon.leagueoflegends.com/cdn/13.8.1/img/passive/Anivia_P.png
+
+http://ddragon.leagueoflegends.com/cdn/13.8.1/data/en_US/champion.json
+
+https://developer.riotgames.com/docs/lol
