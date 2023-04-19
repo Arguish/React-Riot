@@ -23,3 +23,5 @@ http://ddragon.leagueoflegends.com/cdn/13.8.1/img/passive/Anivia_P.png
 http://ddragon.leagueoflegends.com/cdn/13.8.1/data/en_US/champion.json
 
 https://developer.riotgames.com/docs/lol
+
+https://developer.riotgames.com/docs/lol#general_map-names
