@@ -12,11 +12,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 0rem;
+  margin: 0px;
+  padding: 0px;
   text-align: center;
 }

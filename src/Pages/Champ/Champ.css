@@ -1,0 +1,11 @@
+* {
+  border: 1px solid red;
+  box-sizing: content-box;
+}
+
+.champPage {
+  width: 100vw;
+  height: 91vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

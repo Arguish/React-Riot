@@ -5,7 +5,7 @@ const prettierText = (str) => {
   if (str === "Mage") {
     return "🪄";
   } else if (str === "Assassin") {
-    return "🗡";
+    return "🔪";
   } else if (str === "Tank") {
     return "🛡";
   } else if (str === "Fighter") {
