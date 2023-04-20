@@ -1,5 +1,4 @@
 #login {
-  margin: auto;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -15,7 +14,56 @@
 }
 
 #login > * {
+  margin: 10px 0px;
   background-color: rgba(250, 235, 215, 0.75);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 5px 3px 3px 3px;
+}
+
+#avtGallnot {
+  visibility: collapse;
+  top: calc(- (385px / 2));
+  left: calc(- (385px / 2));
+  position: absolute;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 385px;
+  height: 385px;
+  overflow: scroll;
+  border-radius: 41px;
+  background-color: rgba(110, 103, 95, 0.799);
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 3px 3px 3px;
+  transform: scale(0);
+}
+
+#avtGallok {
+  visibility: visible;
+  top: calc(- (385px / 2));
+  left: calc(- (385px / 2));
+  position: absolute;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 385px;
+  height: 385px;
+  overflow: scroll;
+  border-radius: 41px;
+  background-color: rgba(110, 103, 95, 0.799);
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 3px 3px 3px;
+  transform: scale(1) rotate(360deg);
+  transition: all 500ms;
+}
+
+#logContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#logContainer > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

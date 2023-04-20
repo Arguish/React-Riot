@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
@@ -10,19 +10,46 @@ import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import LoginIcon from "@mui/icons-material/Login";
+import { ContextComp } from "../../Context/Context";
+
 import "./LogIn.css";
+import axios from "axios";
 
 function LogIn() {
+  const { name, setName, avt, setavt } = useContext(ContextComp);
   const [showPassword, setShowPassword] = React.useState(false);
-  const [name, setName] = React.useState("");
+
+  const [avticons, setavticons] = useState([]);
+  const [pickicon, setpickicon] = useState("avtGallnot");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const icons = async () => {
+    const result = await axios.get(
+      `http://ddragon.leagueoflegends.com/cdn/13.8.1/data/en_US/profileicon.json`
+    );
+
+    console.log(Object.keys(result.data.data));
+    setavticons(Object.keys(result.data.data));
+  };
+
+  useEffect(() => {
+    icons();
+  }, []);
+
   return (
-    <>
+    <div id="logContainer">
+      <div>
+        <img
+          style={{ width: "33vh" }}
+          src="https://www.leagueoflegends.com/static/logo-1200-589b3ef693ce8a750fa4b4704f1e61f2.png"
+          alt=""
+        />
+      </div>
       <div id="login">
         <TextField
           fullWidth
@@ -30,11 +57,13 @@ function LogIn() {
           label="Summoner Name"
           value={name}
           onChange={(event) => {
-            setName(event.target.value);
+            if (event.target.value.length < 13) {
+              setName(event.target.value);
+            }
           }}
           variant="standard"
         />
-        <FormControl variant="standard">
+        <FormControl fullWidth variant="standard">
           <InputLabel htmlFor="standard-adornment-password">
             Password
           </InputLabel>
@@ -60,7 +89,42 @@ function LogIn() {
           </Button>
         </Link>
       </div>
-    </>
+      <div style={{ display: "flex", flexDirection: "column-reverse" }}>
+        <h1 style={{ position: "absolute", top: "35%" }}>{name}</h1>
+        <img
+          onClick={() => setpickicon("avtGallok")}
+          style={{
+            width: "100px",
+            borderRadius: "50%",
+            boxShadow: "#00000050 5px 5px 3px 3px",
+          }}
+          src={avt}
+          alt=""
+        />
+
+        <div id={pickicon}>
+          {avticons.map((a) => (
+            <img
+              onClick={() => {
+                setavt(
+                  `http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/${a}.png`
+                );
+                setpickicon("avtGallnot");
+              }}
+              style={{
+                width: "75px",
+                borderRadius: "50%",
+                boxShadow: "#00000050 2px 2px 1px 1px",
+                margin: "1px",
+              }}
+              key={a}
+              src={`http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/${a}.png`}
+              alt=""
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

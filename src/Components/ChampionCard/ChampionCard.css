@@ -7,26 +7,52 @@
   flex-direction: column;
   border-radius: 10px;
   margin: 10px;
+  transform: scale(0.95) perspective(10cm) rotateX(15deg);
 }
 
-.championCard > div > h2 {
+.championCard:hover {
+  transform: scale(1.2) perspective(10cm) rotateX(0deg);
+  z-index: 100;
+}
+
+.championCard > * {
+  visibility: hidden;
+}
+
+.championCard:hover > div > h2 {
+  visibility: visible;
+  transition: all 200ms;
   margin: 0%;
   padding: 0%;
+  padding-left: 10px;
   text-align: start;
+  -webkit-text-stroke: 1px rgba(151, 139, 123, 0.654);
+  text-shadow: #242424 2px 2px 1px 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px 10px 0px 0px;
 }
 
-.championCard > p > h5 {
+.championCard:hover > p > h5 {
+  visibility: visible;
+  transition: all 200ms;
   margin: 0%;
   padding: 0%;
+  padding-right: 5px;
   text-align: end;
 }
 
-.championCard > p {
+.championCard:hover > p {
+  visibility: visible;
+  transition: all 200ms;
   margin: 0%;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0px 0px 10px 10px;
 }
 
-.championCard > p > span {
+.championCard:hover > p > span {
+  visibility: visible;
+  transition: all 200ms;
   display: inline-block;
   margin: 3px;
   width: 50px;
