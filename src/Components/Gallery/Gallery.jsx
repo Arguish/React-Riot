@@ -7,7 +7,6 @@ function Gallery({ array }) {
   const { name, setName, avt, setavt } = useContext(ContextComp);
   return (
     <div className="gallery">
-      <h1>{name}</h1>
       {array.map((a, i) => (
         <ChampionCard key={a.id} info={a} index={i}></ChampionCard>
       ))}

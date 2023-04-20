@@ -1,20 +1,26 @@
 import "./Nav.css";
 
-import * as React from "react";
+import { useState, useContext } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
+import { ContextComp } from "../../Context/Context";
+import { NavLink } from "react-router-dom";
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false);
-
+  const { name, setName, avt, setavt, champArray } = useContext(ContextComp);
   return (
     <div>
       <React.Fragment key={"top"}>
         {/* VV Boton VV */}
-        <Button onClick={() => setState(!state)}>{"top"}</Button>
+        <div id="User" onClick={() => setState(!state)}>
+          <img src={avt} alt="" />
+          <h3>{name}</h3>
+        </div>
         {/* AA Boton AA */}
         <Drawer anchor={"top"} open={state} onClose={() => setState(!state)}>
           <Box
@@ -25,11 +31,14 @@ export default function TemporaryDrawer() {
           >
             {/* VV Menu VV */}
             <List>
-              <h1>Otro Algo</h1>
-            </List>
-            <Divider />
-            <List>
-              <h1>Algo</h1>
+              <nav>
+                <NavLink to="/">Cerrar</NavLink>
+                <NavLink to="/Gallery">Gallery</NavLink>
+                <Divider></Divider>
+                {champArray.map((a) => (
+                  <NavLink to={`/Champ/${a}`}>{a}</NavLink>
+                ))}
+              </nav>
             </List>
             {/* AA Menu AA */}
           </Box>

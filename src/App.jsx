@@ -15,6 +15,7 @@ import "./App.css";
 
 function App() {
   const [champions, setchampions] = useState([]);
+  const [champArray, setChampArray] = useState([]);
   useEffect(() => {
     response();
   }, []);
@@ -23,17 +24,17 @@ function App() {
     const result = await axios.get(
       "http://ddragon.leagueoflegends.com/cdn/13.8.1/data/en_US/champion.json"
     );
-
+    setChampArray(Object.keys(result.data.data));
     setchampions(Object.values(result.data.data));
   };
-  const [name, setName] = React.useState("");
+  const [name, setName] = React.useState("User");
   const [avt, setavt] = React.useState(
     "http://ddragon.leagueoflegends.com/cdn/13.8.1/img/passive/Teemo_P.png"
   );
 
   return (
     <>
-      <ContextComp.Provider value={{ name, setName, avt, setavt }}>
+      <ContextComp.Provider value={{ name, setName, avt, setavt, champArray }}>
         <BrowserRouter>
           <Nav></Nav>
           <Routes>
