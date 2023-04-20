@@ -5,8 +5,8 @@ import ChampionCard from "../ChampionCard/ChampionCard";
 function Gallery({ array }) {
   return (
     <div className="gallery">
-      {array.map((a) => (
-        <ChampionCard key={a.id} info={a}></ChampionCard>
+      {array.map((a, i) => (
+        <ChampionCard key={a.id} info={a} index={i}></ChampionCard>
       ))}
     </div>
   );

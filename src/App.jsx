@@ -6,6 +6,7 @@ import Home from "../src/Pages/Home/Home";
 import LogIn from "./Pages/LogIn/LogIn.jsx";
 import Champ from "./Pages/Champ/Champ.jsx";
 import Error from "./Pages/Error/Error";
+import Nav from "./Components/Nav/Nav";
 import axios from "axios";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
@@ -28,7 +29,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <h2 className="navbar">Navbar</h2>
+        <Nav></Nav>
         <Routes>
           <Route
             path="/Gallery"
