@@ -1,13 +1,11 @@
-* {
-  border: 1px solid red;
-}
-
 #User {
-  position: absolute;
+  position: fixed;
   z-index: 100;
-  right: 0px;
+  right: 5px;
+  top: 5px;
   width: 100px;
   height: 100px;
+  border-radius: 50%;
 }
 
 #User > * {
@@ -16,12 +14,13 @@
 }
 
 #User > img {
+  width: 70px;
   top: 20px;
   border-radius: 50%;
 }
 
 #User > h3 {
-  right: 30px;
+  right: 20px;
   top: 70px;
   text-align: center;
 }
@@ -34,4 +33,31 @@
 #User:active > * {
   transform: rotate(-360deg);
   transition: all 500ms;
+}
+
+#menu {
+  background-color: #212121;
+}
+
+#champlist {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.champlink {
+  margin: 2px;
+  font-size: 15px;
+  box-shadow: black 1px 1px 2px;
+  border-radius: 50%;
+}
+
+.champlink:hover > * {
+  color: antiquewhite;
+  background-color: #212121;
+}
+
+.hr {
+  color: antiquewhite;
+  border: 1px solid red;
 }

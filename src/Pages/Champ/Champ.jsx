@@ -9,16 +9,14 @@ function Champ() {
   const [character, setcharacter] = useState({});
   useEffect(() => {
     charResult();
-  }, []);
+  }, [CHAMPCHAR]);
 
   const charResult = async () => {
     const result = await axios.get(
       `http://ddragon.leagueoflegends.com/cdn/13.8.1/data/en_US/champion/${CHAMPCHAR}.json`
     );
-    console.log(result.data.data);
-    console.log();
+
     setcharacter(...Object.values(result.data.data));
-    console.log(character);
   };
 
   return (
