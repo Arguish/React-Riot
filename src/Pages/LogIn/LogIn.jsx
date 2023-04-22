@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
@@ -16,8 +16,7 @@ import "./LogIn.css";
 import axios from "axios";
 
 function LogIn() {
-  const { name, setName, avt, setavt, isloged, setIsLoged } =
-    useContext(ContextComp);
+  const { name, setName, avt, setavt, setIsLoged } = useContext(ContextComp);
   const [showPassword, setShowPassword] = React.useState(false);
 
   const [avticons, setavticons] = useState([]);

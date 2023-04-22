@@ -8,7 +8,7 @@ import "./Champ.css";
 import { ContextComp } from "../../Context/Context";
 
 function Champ() {
-  const { name, setName, avt, setavt, PRIVATE } = useContext(ContextComp);
+  const { PRIVATE } = useContext(ContextComp);
 
   const { CHAMPCHAR } = useParams();
   const [character, setcharacter] = useState({});

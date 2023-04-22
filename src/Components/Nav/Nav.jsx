@@ -1,13 +1,12 @@
 import "./Nav.css";
 
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { Avatar } from "@mui/material";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import { ContextComp } from "../../Context/Context";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -18,9 +17,7 @@ import Typography from "@mui/material/Typography";
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false);
-  const { name, setName, avt, setavt, champArray, setIsLoged } =
-    useContext(ContextComp);
-  /*  */
+  const { name, avt, champArray, setIsLoged } = useContext(ContextComp);
 
   const [expanded, setExpanded] = React.useState("panel1");
 
@@ -36,7 +33,6 @@ export default function TemporaryDrawer() {
     navegacion("/", { replace: true });
   };
 
-  /*  */
   return (
     <div>
       <React.Fragment key={"top"}>

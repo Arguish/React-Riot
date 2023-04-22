@@ -4,7 +4,7 @@ import ChampionCard from "../../Components/ChampionCard/ChampionCard";
 import { ContextComp } from "../../Context/Context";
 
 function Gallery({ array }) {
-  const { name, setName, avt, setavt, PRIVATE } = useContext(ContextComp);
+  const { PRIVATE } = useContext(ContextComp);
 
   return PRIVATE(
     <div className="gallery">

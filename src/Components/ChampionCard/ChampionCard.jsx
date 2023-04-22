@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
 import SecurityIcon from "@mui/icons-material/Security";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import ColorizeIcon from "@mui/icons-material/Colorize";
