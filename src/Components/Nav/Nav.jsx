@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import { ContextComp } from "../../Context/Context";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
@@ -18,13 +18,22 @@ import Typography from "@mui/material/Typography";
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false);
-  const { name, setName, avt, setavt, champArray } = useContext(ContextComp);
+  const { name, setName, avt, setavt, champArray, setIsLoged } =
+    useContext(ContextComp);
   /*  */
 
   const [expanded, setExpanded] = React.useState("panel1");
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
+  };
+
+  const navegacion = useNavigate();
+
+  const exit = () => {
+    setIsLoged(false);
+    setState(!state);
+    navegacion("/", { replace: true });
   };
 
   /*  */
@@ -47,13 +56,18 @@ export default function TemporaryDrawer() {
             {/* VV Menu VV */}
             <List>
               <nav>
-                <NavLink onClick={() => setState(!state)} to="/">
-                  Cerrar
-                </NavLink>
-                <NavLink onClick={() => setState(!state)} to="/Gallery">
-                  Gallery
-                </NavLink>
-                <Divider className="hr">Champions</Divider>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Button onClick={() => exit()}>LogOut</Button>
+                  <NavLink onClick={() => setState(!state)} to="/Logged">
+                    Gallery
+                  </NavLink>
+                </div>
                 {/*  */}
                 <MuiAccordion
                   expanded={expanded === "panel1"}
@@ -62,6 +76,10 @@ export default function TemporaryDrawer() {
                   <MuiAccordionSummary
                     aria-controls="panel1d-content"
                     id="panel1d-header"
+                    style={{
+                      backgroundColor: "#212121",
+                      color: "antiquewhite",
+                    }}
                   >
                     <Typography>Champions</Typography>
                   </MuiAccordionSummary>
@@ -71,7 +89,7 @@ export default function TemporaryDrawer() {
                         <NavLink
                           className="champlink"
                           key={a}
-                          to={`/Champ/${a}`}
+                          to={`/Gallery/${a}`}
                         >
                           <Avatar
                             onClick={() => setState(!state)}

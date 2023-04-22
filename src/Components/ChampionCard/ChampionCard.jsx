@@ -39,7 +39,7 @@ function ChampionCard({ info, index }) {
   return (
     <>
       <Grow in="true" timeout={100 + 50 * index}>
-        <Link to={`/Champ/${info.id}`}>
+        <Link to={`${info.id}`}>
           <div
             className="championCard"
             style={{

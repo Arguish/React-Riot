@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
@@ -16,7 +16,8 @@ import "./LogIn.css";
 import axios from "axios";
 
 function LogIn() {
-  const { name, setName, avt, setavt } = useContext(ContextComp);
+  const { name, setName, avt, setavt, isloged, setIsLoged } =
+    useContext(ContextComp);
   const [showPassword, setShowPassword] = React.useState(false);
 
   const [avticons, setavticons] = useState([]);
@@ -40,6 +41,13 @@ function LogIn() {
   useEffect(() => {
     icons();
   }, []);
+
+  const navegacion = useNavigate();
+
+  const loginSucces = () => {
+    setIsLoged(true);
+    navegacion("/Gallery", { replace: true });
+  };
 
   return (
     <div id="logContainer">
@@ -83,11 +91,14 @@ function LogIn() {
             }
           />
         </FormControl>
-        <Link to={"/Gallery"}>
-          <Button variant="contained" endIcon={<LoginIcon />}>
-            To the Rift!
-          </Button>
-        </Link>
+
+        <Button
+          onClick={loginSucces}
+          variant="contained"
+          endIcon={<LoginIcon />}
+        >
+          To the Rift!
+        </Button>
       </div>
       <div style={{ display: "flex", flexDirection: "column-reverse" }}>
         <h1 style={{ position: "absolute", top: "35%" }}>{name}</h1>
