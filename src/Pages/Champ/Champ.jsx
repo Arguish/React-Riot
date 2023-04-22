@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Example } from "../../Components/Carrousel/Carrousel";
 
 import "./Champ.css";
 
@@ -11,6 +12,7 @@ function Champ() {
 
   const { CHAMPCHAR } = useParams();
   const [character, setcharacter] = useState({});
+  const [skins, setskins] = useState([]);
   useEffect(() => {
     charResult();
   }, [CHAMPCHAR]);
@@ -21,19 +23,13 @@ function Champ() {
     );
 
     setcharacter(...Object.values(result.data.data));
+    setskins(Object.keys(result.data.data[CHAMPCHAR].skins));
   };
 
   return PRIVATE(
-    <div
-      style={{
-        backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${character.id}_0.jpg)`,
-      }}
-      className="champPage"
-    >
-      <h1>{character.id}</h1>
-      <h2>{character.title}</h2>
-      <p>{character.lore}</p>
-    </div>
+    <>
+      <Example array={skins} card={character}></Example>
+    </>
   );
 }
 

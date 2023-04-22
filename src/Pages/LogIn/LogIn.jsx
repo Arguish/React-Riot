@@ -34,7 +34,6 @@ function LogIn() {
       `http://ddragon.leagueoflegends.com/cdn/13.8.1/data/en_US/profileicon.json`
     );
 
-    console.log(Object.keys(result.data.data));
     setavticons(Object.keys(result.data.data));
   };
 

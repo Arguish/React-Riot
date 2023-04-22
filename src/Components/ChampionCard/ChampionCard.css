@@ -32,7 +32,7 @@
   border-radius: 10px 10px 0px 0px;
 }
 
-.championCard:hover > p > h5 {
+.championCard:hover > div > h5 {
   visibility: visible;
   transition: all 200ms;
   margin: 0%;
@@ -41,7 +41,7 @@
   text-align: end;
 }
 
-.championCard:hover > p {
+.championCard:hover > div {
   visibility: visible;
   transition: all 200ms;
   margin: 0%;
@@ -50,7 +50,7 @@
   border-radius: 0px 0px 10px 10px;
 }
 
-.championCard:hover > p > span {
+.championCard:hover > div > span {
   visibility: visible;
   transition: all 200ms;
   display: inline-block;

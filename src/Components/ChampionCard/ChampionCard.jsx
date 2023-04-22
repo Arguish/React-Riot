@@ -38,7 +38,7 @@ function ChampionCard({ info, index }) {
   };
   return (
     <>
-      <Grow in="true" timeout={100 + 50 * index}>
+      <Grow key={index} in={true} timeout={100 + 50 * index}>
         <Link to={`${info.id}`}>
           <div
             className="championCard"
@@ -50,12 +50,13 @@ function ChampionCard({ info, index }) {
             <div>
               <h2>{info.id}</h2>
             </div>
-            <p>
+            <div>
               <h5>{info.title}</h5>
               <Stack direction="row" spacing={-2} justifyContent="center">
-                {info.tags.map((a) => {
+                {info.tags.map((a, i) => {
                   return (
                     <Chip
+                      key={i}
                       style={{
                         transform: "scale(0.66)",
                         backgroundColor: "antiquewhite",
@@ -72,7 +73,7 @@ function ChampionCard({ info, index }) {
                   );
                 })}
               </Stack>
-            </p>
+            </div>
           </div>
         </Link>
       </Grow>
