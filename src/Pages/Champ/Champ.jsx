@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import "./Champ.css";
 
+import { ContextComp } from "../../Context/Context";
+
 function Champ() {
+  const { name, setName, avt, setavt, PRIVATE } = useContext(ContextComp);
+
   const { CHAMPCHAR } = useParams();
   const [character, setcharacter] = useState({});
   useEffect(() => {
@@ -19,7 +23,7 @@ function Champ() {
     setcharacter(...Object.values(result.data.data));
   };
 
-  return (
+  return PRIVATE(
     <div
       style={{
         backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${character.id}_0.jpg)`,

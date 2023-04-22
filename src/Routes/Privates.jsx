@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import { ContextComp } from "../Context/Context";
 
-import Gallery from "../Components/Gallery/Gallery";
+import Gallery from "../Pages/Gallery/Gallery";
 import Champ from "../Pages/Champ/Champ.jsx";
 import Error from "../Pages/Error/Error";
 import Nav from "../Components/Nav/Nav";

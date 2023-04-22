@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Home from "../src/Pages/Home/Home";
 import { ContextComp } from "./Context/Context";
+import { Navigate } from "react-router-dom";
 
 import "./App.css";
 
@@ -15,6 +16,14 @@ function App() {
     "http://ddragon.leagueoflegends.com/cdn/13.8.1/img/passive/Teemo_P.png"
   );
   const [isloged, setIsLoged] = useState(false);
+
+  const PRIVATE = (a) => {
+    if (!isloged) {
+      return <Navigate to="/" />;
+    } else {
+      return a;
+    }
+  };
 
   useEffect(() => {
     response();
@@ -40,6 +49,7 @@ function App() {
           champions,
           isloged,
           setIsLoged,
+          PRIVATE,
         }}
       >
         <Home></Home>
